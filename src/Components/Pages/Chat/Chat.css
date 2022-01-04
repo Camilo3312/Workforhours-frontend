@@ -1,0 +1,27 @@
+.main_chat {
+    height: calc(100vh - 60px);
+    display: flex;
+}
+
+.header_info_user_selected {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.img_profile_user_selected {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 100%;
+}
+
+.name_current_user {
+    font-size: 1.5em;
+    color: #464646;
+    margin: 0 0 0 10px;
+}
+
+.messages {
+    width: 70%;
+}

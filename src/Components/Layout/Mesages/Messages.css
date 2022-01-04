@@ -1,0 +1,79 @@
+.show_messages {
+    padding: 20px 4em;
+    height: calc(100vh - 263px);
+    overflow-y: scroll;
+    background: #f1f1f1;
+}
+
+.conatiner_message {
+    display: flex;
+    /* justify-content: flex-end; */
+    flex-wrap: wrap;
+    margin: 0 0 20px 0;
+}
+
+.limit_width_message {
+    max-width: 400px;
+}
+
+.message_chat {
+    padding: 10px;
+    border-radius: 5px;
+    background: var(--blue);
+    color: #FFF;
+}
+
+._message {
+    margin: 0 0 5px 0;
+}
+
+.date_message {
+    font-size: 13px;
+}
+
+.left {
+    justify-content: flex-start;
+}
+
+.left .message_chat {
+    background: #e7e7e7;
+    color: #474747;
+}
+
+.rigth {
+    justify-content: flex-end;
+}
+
+.send_message {
+    padding: 10px 10px 0 0px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.input_send_message {
+    width: 100%;
+    padding: 10px;
+    margin: 0 10px 0 0;
+    font-size: var(--font-size);
+    border: 1px solid var(--blue);
+    border-radius: var(--border-radius);
+    color: var(--gray);
+    outline: none;
+
+    transition: ease 100ms;
+}
+
+.input_send_message::placeholder {
+    color: var(--blue);
+}
+
+.input_send_message:focus {
+    outline: 2px solid var(--blue-shadow);
+}
+
+.limit {
+    max-width: 400px;
+    display: flex;
+    /* justify-content: flex-end; */
+    flex-wrap: wrap;
+}

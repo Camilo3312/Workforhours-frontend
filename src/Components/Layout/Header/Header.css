@@ -1,0 +1,117 @@
+.header_pages {
+    background: var(--blue);
+}
+
+.center_header_pages {
+    max-width: 1200px;
+    padding: 0 20px;
+    height: 60px;
+    margin: auto;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+}
+
+.logo h1 {
+    color: #FFFF;
+    font-size: 25px;
+}
+.logo a {
+    text-decoration: none;
+
+} 
+.img_profile_user {
+    border-radius: 100%;
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    object-position: center center;
+}
+
+.info_user {
+    display: flex;
+    align-items: center;
+}
+
+.user_name {
+    color: #FFFF;
+    margin: 0 10px 0 0;
+}
+
+.login_button {
+    text-decoration: none;
+    color: #FFFF;
+    margin: 0 10px 0 0;
+}
+
+.login_button:hover {
+    text-decoration: underline;
+}
+
+.register_button {
+    padding: 10px;
+    border-radius: var(--border-radius);
+    border: 1px solid #FFFF;
+    /* font-weight: 600; */
+    color: #FFFF;
+    text-decoration: none;
+}
+
+.operations_header {
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.register_button:hover {
+    background: #FFFF;
+    color: var(--blue);
+    text-decoration: underline;
+} 
+
+.header_popup_profile {
+    display: flex;
+    padding: 0 0 10px 0;
+    border-bottom: 1px solid #FFFF;
+}
+
+.info_user_popup {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+}
+
+.image_profile_popup {
+    width: 70px;
+    height: 70px;
+    border-radius: 50px;
+    object-fit: cover;
+}
+
+.names_profile_popup {
+    font-size: 22px;
+    margin: 0 0 5px 0;
+    color: #FFFF;
+}
+
+.email_profile_popup {
+    color: #FFFF;
+    
+}
+
+.btn_logout_popup {
+    padding: 20px 0 0 0;
+    color: #FFFF;
+    font-size: 18px;
+}
+
+.btn_logout_popup:hover {
+    cursor: pointer;
+}

@@ -1,0 +1,12 @@
+.button {
+    padding: 10px;
+    font-size: var(--font-size);
+    border-radius: var(--border-radius);
+    border: none;
+    background: var(--blue);
+    color: #FFFF;
+}
+
+.button:active {
+    background: var(--blue-shadow);
+}

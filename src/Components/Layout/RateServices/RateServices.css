@@ -1,0 +1,13 @@
+.rate_service {
+    padding: 15px;
+    background: var(--blue);
+    color: #FFFF;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.message_rate_service {
+    font-size: 18px;
+}

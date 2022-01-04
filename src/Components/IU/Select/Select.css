@@ -1,0 +1,19 @@
+.select {
+    padding: 10px;
+    margin: 0 0 20px 0;
+    font-size: var(--font-size);
+    border: 1px solid var(--blue);
+    border-radius: var(--border-radius);
+    color: var(--gray);
+    outline: none;
+
+    transition: ease-in 50ms;
+}
+
+.select::placeholder {
+    color: var(--blue);
+}
+
+.select:focus {
+    outline: 2px solid var(--blue-shadow);
+}

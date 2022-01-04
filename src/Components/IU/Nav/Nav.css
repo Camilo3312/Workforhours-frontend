@@ -1,0 +1,18 @@
+.nav_home {
+    display: flex;
+    align-items: center;
+}
+
+.nav_home ul {
+    display: flex;
+}
+
+.nav_home ul li {
+    list-style: none;
+}
+
+.nav_home ul a {
+    padding: 10px;
+    text-decoration: none;
+    color: #FFFF;
+}

@@ -1,0 +1,14 @@
+.nav_search {
+    /* height: 30px; */
+    background: var(--blue);
+}
+
+.center_nav_search {
+    max-width: 1200px;
+    padding: 5px 20px;
+    margin: auto;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}

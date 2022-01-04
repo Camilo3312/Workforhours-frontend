@@ -1,0 +1,63 @@
+.card {
+    width: 500px;
+    /* height: 200px; */
+    margin: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+
+    background: #f1f1f1;
+
+    display: flex;
+}
+
+.image_service_card {
+    position: relative;
+    width: 40%;
+    overflow: hidden;
+}
+
+.image_service_card > img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    /* object-position: center; */
+}
+
+.info_service_card {
+    width: 60%;
+}
+
+.header_card {
+    padding: 10px 20px;
+    background: var(--blue);
+}
+
+.caregory {
+    color: #FFFF;
+    font-size: 1.5em;
+    font-weight: 500;
+}
+
+.body_card {
+    padding: 20px;
+}
+
+.name_service {
+    color: var(--gray);
+    font-size: 1.7em;
+    margin: 0 0 5px 0;
+}
+
+.price_service {
+    color: var(--gray);
+    font-size: 1.4em;
+    margin: 0 0 10px 0;
+}
+
+.location_service {
+    color: var(--blue);
+    font-size: 1.2em;
+}
+

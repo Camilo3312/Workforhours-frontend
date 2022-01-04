@@ -1,0 +1,12 @@
+.center_main {
+    max-width: 1200px;
+    margin: 3em auto;
+    
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.link_card_service {
+    text-decoration: none;
+}
