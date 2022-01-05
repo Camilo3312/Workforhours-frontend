@@ -26,13 +26,13 @@ export const Header = () => {
                     <div className="logo">
                         <Link to='/'><h1>Work for Hours</h1></Link>
                     </div>
-                    <Nav />
                 </div>
                 <div className="operations_header">
                     {
                         UserAuth() ?
-                            <>
+                        <>
                                 <div className='info_user'>
+                                    <Nav />
                                     <img onClick={() => none ? setNone(false) : setNone(true)} className='img_profile_user' src={imageprofile} alt="" />
                                 </div>
                                 <Popup variant={none}>
@@ -66,6 +66,7 @@ const Popup = styled.div`
     background: var(--blue);
     position: absolute;
     top: 60px;
+    z-index: 2;
     display: ${props => props.variant ? 'none' : 'block'};
     box-shadow: 0px 0px 30px #808080;
     
