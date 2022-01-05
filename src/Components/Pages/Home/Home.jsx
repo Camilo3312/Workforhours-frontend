@@ -33,8 +33,8 @@ export const Home = () => {
     return (
         <>
             <Header/>              
-            <Banner/>           
             <NavSearch/>
+            <Banner/>           
             <main className='main_home'>
                 <div className="center_main">
                     {
