@@ -3,9 +3,10 @@ import { SwitchChat } from '../../Layout/SwitchChat/SwitchChat'
 import { Header } from '../../Layout/Header/Header'
 import { HubConnectionBuilder, LogLevel } from '@microsoft/signalr'
 import { getToken } from '../../Cookies'
-import './Chat.css'
 import { Messages } from '../../Layout/Mesages/Messages'
 import { RateServices } from '../../Layout/RateServices/RateServices'
+import styled from 'styled-components'
+import './Chat.css'
 
 const urlApi = process.env.REACT_APP_API
 
@@ -108,20 +109,38 @@ export const Chat = () => {
         <div>
             <Header />
             <main className='main_chat'>
-                <SwitchChat setCurrentRoom={setCurrentRoom} connectRoom={connectRoom} closeConnection={closeConnection} setCurrentUser={setCurrentUser}/>
+                <ContainerSwitchChat clicked={clicked}>
+                    <SwitchChat setCurrentRoom={setCurrentRoom} connectRoom={connectRoom} closeConnection={closeConnection} setCurrentUser={setCurrentUser}/>
+                </ContainerSwitchChat>
                 {
                     clicked && (
-                        <div className="messages">
+                        <ContainerMessages clicked={clicked}>
                             <header className='header_info_user_selected'>
+                                <button onClick={()=> clicked ? setClicked(false) : setClicked(true)}>Exit</button>
                                 <img className='img_profile_user_selected' src={currentUser.imageprofile} alt="" />
                                 <p className='name_current_user'>{currentUser.names}</p>
                             </header>
                             <RateServices/>
                             <Messages sendMessage={sendMessage} messages={messages} currentRoom={currentRoom} saveMessage={saveMessage}/>
-                        </div>
+                        </ContainerMessages>
                     )
                 }
             </main>
         </div>
     )
 }
+
+const ContainerSwitchChat = styled.div`
+    width: 30%;
+    @media screen and (max-width: 650px) {
+        width: 100%;
+        display: ${props => props.clicked ? 'none' : 'block'};
+    }
+`
+const ContainerMessages = styled.div`
+    width: 70%;
+    @media screen and (max-width: 650px) {
+        width: 100%;
+        display: ${props => props.clicked ? 'block' : 'none'};
+    }
+`
