@@ -34,6 +34,10 @@
     object-position: center center;
 }
 
+.img_profile_user:hover {
+    cursor: pointer;
+}
+
 .info_user {
     display: flex;
     align-items: center;
@@ -77,8 +81,7 @@
 
 .header_popup_profile {
     display: flex;
-    padding: 0 0 10px 0;
-    border-bottom: 1px solid #FFFF;
+    padding: 20px;
 }
 
 .info_user_popup {
@@ -107,11 +110,19 @@
 }
 
 .btn_logout_popup {
-    padding: 20px 0 0 0;
+    padding: 10px 20px;
+    color: #FFFF;
+    font-size: 18px;
+    border-top: 1px solid #ffffff71;
+}
+
+.btn_popup {
+    padding: 10px 20px;
     color: #FFFF;
     font-size: 18px;
 }
 
 .btn_logout_popup:hover {
     cursor: pointer;
+    background: rgba(0,0,0,.1);
 }

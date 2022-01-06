@@ -1,0 +1,8 @@
+.main_dashboard {
+    display: flex;
+}
+
+.aside_dashboard {
+    padding: 20px;
+    width: 30%;
+}

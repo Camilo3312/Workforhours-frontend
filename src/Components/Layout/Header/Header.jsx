@@ -30,7 +30,7 @@ export const Header = () => {
                 <div className="operations_header">
                     {
                         UserAuth() ?
-                        <>
+                            <>
                                 <div className='info_user'>
                                     <Nav />
                                     <img onClick={() => none ? setNone(false) : setNone(true)} className='img_profile_user' src={imageprofile} alt="" />
@@ -43,6 +43,7 @@ export const Header = () => {
                                             <p className='email_profile_popup'>{email}</p>
                                         </div>
                                     </header>
+                                    <p onClick={logout} className='btn_logout_popup'>Perfil</p>
                                     <p onClick={logout} className='btn_logout_popup'>Cerrar sesión</p>
                                 </Popup>
                             </>
@@ -51,7 +52,6 @@ export const Header = () => {
                                 <Link className='login_button' to='/login'>Ingresar</Link>
                                 <Link className='register_button' to='/register'>Registrarse</Link>
                             </div>
-
                     }
 
                 </div>
@@ -61,13 +61,11 @@ export const Header = () => {
 }
 
 const Popup = styled.div`
-    padding: 20px;
     border-radius: 5px;
     background: var(--blue);
     position: absolute;
     top: 60px;
     z-index: 2;
     display: ${props => props.variant ? 'none' : 'block'};
-    box-shadow: 0px 0px 30px #808080;
-    
+    box-shadow: 0px 0px 30px #3a3a3a32;
 `
