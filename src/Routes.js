@@ -29,6 +29,7 @@ function App() {
         <Route path='/password/update/:token/:email' element={<UpdatePassword/>}/>
         <Route path='/chat' element={<Chat/>}/>
         <Route path='/dashboard/*' element={<Dashboard/>}>
+          <Route path='services' element={<AddService/>}/>   
           <Route path='services/add' element={<AddService/>}/>   
         </Route>
       </Routes>
