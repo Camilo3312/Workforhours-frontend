@@ -12,10 +12,10 @@ export const AddService = () => {
     const [categories, setCategories] = useState([])
     const [cities, setCities] = useState([])
     const [name, setName] = useState('')
-    const [location, setLocation] = useState('')
+    const [location, setLocation] = useState(0)
     const [description, setDescription] = useState('')
     const [price, setPrice] = useState('')
-    const [category, setCategory] = useState('')
+    const [category, setCategory] = useState(0)
     const [imageservice, setImageservice] = useState('')
 
     const getCities = async () => {
@@ -38,7 +38,7 @@ export const AddService = () => {
         formData.append('upload_preset', 'kd1kvjbg')
         formData.append('file', files.target.files[0])
         const responseImage = await Axios.post('https://api.cloudinary.com/v1_1/sena-quindio/image/upload', formData)
-        setImageservice(responseImage)
+        setImageservice(responseImage.data.url)
     }
 
     const getCategories = async () => {
@@ -95,8 +95,8 @@ export const AddService = () => {
                 <Select funct={setLocation}>
                     <option>Seleccione una ciudad</option>
                     {
-                        cities?.map(item => (
-                            <option value={item.idcitie}>{item.name}</option>
+                        cities?.map((item, index) => (
+                            <option key={index} value={item.idcitie}>{item.name}</option>
                         ))
                     }
                 </Select>
@@ -105,8 +105,8 @@ export const AddService = () => {
                 <Select funct={setCategory}>
                     <option>Seleccione una categoria</option>
                     {
-                        categories?.map(item => (
-                            <option value={item.idcategory}>{item.name}</option>
+                        categories?.map((item, index) => (
+                            <option key={index} value={item.idcategory}>{item.name}</option>
                         ))
                     }
                 </Select>

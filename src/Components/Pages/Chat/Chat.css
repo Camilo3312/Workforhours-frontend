@@ -21,3 +21,8 @@
     color: #464646;
     margin: 0 0 0 10px;
 }
+
+.row_left {
+    fill: var(--blue);
+    
+}

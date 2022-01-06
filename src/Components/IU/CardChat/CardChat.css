@@ -10,6 +10,10 @@
     background: rgba(15, 58, 99, 0.1);
 }
 
+.link_switch_chat:hover {
+    cursor: pointer;
+}
+
 .header_swith_chat {
     padding: 10px;
     background: var(--blue);
