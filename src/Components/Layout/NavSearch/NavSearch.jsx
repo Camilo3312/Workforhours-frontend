@@ -27,7 +27,6 @@ export const NavSearch = () => {
     return (
         <div className='nav_search'>
             <div className="center_nav_search">
-                {/* <input type="text" onChange={e => searcServices(e.target.value)} /> */}
                 <Search placeholder='Buscar'/>
                 {
                     services?.map(item=> (

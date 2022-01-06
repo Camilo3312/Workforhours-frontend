@@ -1,16 +1,18 @@
-import React, { useState, useEffect, Suspense, lazy } from 'react'
+import React, { useState, useEffect } from 'react'
 import { SwitchChat } from '../../Layout/SwitchChat/SwitchChat'
 import { Header } from '../../Layout/Header/Header'
 import { HubConnectionBuilder, LogLevel } from '@microsoft/signalr'
 import { getToken } from '../../Cookies'
 import { Messages } from '../../Layout/Mesages/Messages'
 import { RateServices } from '../../Layout/RateServices/RateServices'
+import { ReactComponent as RowLeft } from '../../../Assets/Icons/RowLeft.svg'
 import styled from 'styled-components'
 import './Chat.css'
 
 const urlApi = process.env.REACT_APP_API
 
 export const Chat = () => {
+    
     const [connection, setConnection] = useState()
     const [clicked, setClicked] = useState(false)
     const [messages, setMessages] = useState([])
@@ -27,7 +29,7 @@ export const Chat = () => {
         })
         const resjson = await response.json();
         if(resjson.value !== false) {
-            setMessages(resjson);
+            setMessages(resjson);          
         }
     }
 
@@ -116,7 +118,9 @@ export const Chat = () => {
                     clicked && (
                         <ContainerMessages clicked={clicked}>
                             <header className='header_info_user_selected'>
-                                <button onClick={()=> clicked ? setClicked(false) : setClicked(true)}>Exit</button>
+                                <ButtonExitChat onClick={() => clicked ? setClicked(false) : setClicked(true)}>
+                                    <RowLeft className='row_left'/>
+                                </ButtonExitChat>
                                 <img className='img_profile_user_selected' src={currentUser.imageprofile} alt="" />
                                 <p className='name_current_user'>{currentUser.names}</p>
                             </header>
@@ -142,5 +146,15 @@ const ContainerMessages = styled.div`
     @media screen and (max-width: 650px) {
         width: 100%;
         display: ${props => props.clicked ? 'block' : 'none'};
+    }   
+`
+
+const ButtonExitChat = styled.button`
+    border: none;
+    text-align: center;
+    background: transparent;
+    margin: 0 10px 0 0;
+    @media screen and (min-width: 650px) {
+        display: none;
     }
 `
