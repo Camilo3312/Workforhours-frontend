@@ -3,7 +3,7 @@ import { Button } from '../../IU/Button/Button'
 import { getUserInfo } from '../../Cookies'
 import './Messages.css'
 
-export const Messages = ({ sendMessage, messages, currentRoom, saveMessage }) => {
+export const Messages = ({ sendMessage, messages, currentRoom, saveMessage, notification, currentUser }) => {
 
     const [message, setMessage] = useState('')
     const messageRef = useRef();
@@ -50,6 +50,7 @@ export const Messages = ({ sendMessage, messages, currentRoom, saveMessage }) =>
                 e.preventDefault()
                 sendMessage(currentRoom, getUserInfo().names, message, currentDateTime())
                 saveMessage(currentRoom, message, currentDateTime(), getUserInfo().idduser)
+                notification(String(currentUser.iduser),getUserInfo().names, message, currentDateTime())
                 setMessage('')
             }}>
                 <input className='input_send_message' type='text' onChange={e => setMessage(e.target.value)} value={message} placeholder='Mensaje' />

@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { getToken } from '../../Cookies'
 import { CardService } from '../../IU/CardService/CardService'
-import { UserAuth } from '../../UserAuth'
 import { Header } from '../../Layout/Header/Header'
 import './Profile.css'
 const urlApi = process.env.REACT_APP_API

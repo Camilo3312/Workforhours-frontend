@@ -5,4 +5,31 @@
 .aside_dashboard {
     padding: 20px;
     width: 30%;
+    height: calc(100vh - 60px);
+
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    /* align-items: center; */
+}
+
+.btn_add_service_dashboard {
+    padding: 10px 20px;
+    max-width: 300px;
+    margin: 0 0 10px 0;
+    color: #FFFF;
+    text-decoration: none;
+    background: var(--blue);
+    border-radius: 5px;
+    text-align: center;
+}
+
+.subtitle_aside_dashboard {
+    font-size: 19px;
+}
+
+.info_dashboard {
+    width: 70%;
+    height: calc(100vh - 60px);
+    overflow-y: scroll;
 }

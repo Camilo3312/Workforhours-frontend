@@ -16,8 +16,12 @@ export const getToken = () => {
 }
 
 export const getUserInfo = () => {
-    if(UserAuth())
+    if(UserAuth()) {
         return cookies.get(sha256('user_info'))
+    }
+    else {
+        return null
+    }
 }
 
 export const removeSessionCookie = () => {

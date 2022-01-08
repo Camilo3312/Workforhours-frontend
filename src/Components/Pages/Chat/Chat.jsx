@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { SwitchChat } from '../../Layout/SwitchChat/SwitchChat'
 import { Header } from '../../Layout/Header/Header'
 import { HubConnectionBuilder, LogLevel } from '@microsoft/signalr'
-import { getToken } from '../../Cookies'
+import { getToken, getUserInfo } from '../../Cookies'
 import { Messages } from '../../Layout/Mesages/Messages'
 import { RateServices } from '../../Layout/RateServices/RateServices'
 import { ReactComponent as RowLeft } from '../../../Assets/Icons/RowLeft.svg'
@@ -14,10 +14,49 @@ const urlApi = process.env.REACT_APP_API
 export const Chat = () => {
     
     const [connection, setConnection] = useState()
+    const [connectionMessage, setConnectionMessage] = useState()
     const [clicked, setClicked] = useState(false)
     const [messages, setMessages] = useState([])
     const [currentUser, setCurrentUser] = useState({})
     const [currentRoom, setCurrentRoom] = useState('')
+
+    const connectRoomNotification = async (room) => {
+        try {
+            const connectionMessage = new HubConnectionBuilder()
+                .withUrl(`${urlApi}notification`)
+                .configureLogging(LogLevel.Information)
+                .build();
+
+                connectionMessage.on("ReciveNotification", (user, messagess, date) => {
+                
+            })
+
+            connectionMessage.on("ShowWho", (message) => {
+                console.log('user connected', message);
+            })
+
+            connectionMessage.onclose(e => {
+                setConnection()
+                setMessages([])
+            });
+
+            await connectionMessage.start()
+            await connectionMessage.invoke("JoinRoom", { room })
+            setConnectionMessage(connectionMessage)
+        }
+        catch (error) {
+            console.log(error)
+        }
+    }
+
+    const notification = async (room, user, message, date) => {
+        try {
+            let imageuser = String(getUserInfo().imageprofile)
+            await connectionMessage.invoke("SendNotification", { room, user, imageuser, message, date })
+        } catch (e) {
+            console.log(e);
+        }
+    }
 
     const getMessage = async () => {
         const response = await fetch(`${urlApi}messages/${currentRoom}`, {
@@ -112,7 +151,7 @@ export const Chat = () => {
             <Header />
             <main className='main_chat'>
                 <ContainerSwitchChat clicked={clicked}>
-                    <SwitchChat setCurrentRoom={setCurrentRoom} connectRoom={connectRoom} closeConnection={closeConnection} setCurrentUser={setCurrentUser}/>
+                    <SwitchChat setCurrentRoom={setCurrentRoom} connectRoom={connectRoom} closeConnection={closeConnection} setCurrentUser={setCurrentUser} connectRoomNotification={connectRoomNotification}/>
                 </ContainerSwitchChat>
                 {
                     clicked && (
@@ -125,7 +164,7 @@ export const Chat = () => {
                                 <p className='name_current_user'>{currentUser.names}</p>
                             </header>
                             <RateServices/>
-                            <Messages sendMessage={sendMessage} messages={messages} currentRoom={currentRoom} saveMessage={saveMessage}/>
+                            <Messages sendMessage={sendMessage} messages={messages} currentRoom={currentRoom} saveMessage={saveMessage} notification={notification} currentUser={currentUser} />
                         </ContainerMessages>
                     )
                 }

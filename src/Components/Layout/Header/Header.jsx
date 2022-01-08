@@ -1,14 +1,21 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { removeSessionCookie, getUserInfo } from '../../Cookies'
 import { UserAuth } from '../../UserAuth'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, NavLink, useNavigate } from 'react-router-dom'
 import { Nav } from '../../IU/Nav/Nav'
+import { HubConnectionBuilder, LogLevel } from '@microsoft/signalr'
 import styled from 'styled-components'
 import './Header.css'
+const urlApi = process.env.REACT_APP_API
 
 export const Header = () => {
     const navigate = useNavigate()
+
+    const [connection, setConnection] = useState()
+    const [currentUser, setCurrentUser] = useState()
+    const [messages, setMessages] = useState([])
     const [none, setNone] = useState(true)
+    const [notification, setNotification] = useState(true)
 
     if (UserAuth()) {
         var { names, email, surnames, imageprofile } = getUserInfo()
@@ -18,6 +25,51 @@ export const Header = () => {
         removeSessionCookie()
         navigate('/')
     }
+
+
+    const connectRoomNotification = async (room) => {
+        try {
+            const connection = new HubConnectionBuilder()
+                .withUrl(`${urlApi}notification`)
+                .configureLogging(LogLevel.Information)
+                .build();
+
+            connection.on("ReciveNotification", (user, imageuser, messagess, date) => {
+                setMessages(messages => [...messages, { user, imageuser, messagess, date }])
+            })
+
+            connection.on("ShowWho", (message) => {
+            })
+
+            connection.onclose(e => {
+                setConnection()
+                setMessages([])
+            });
+
+            await connection.start()
+            await connection.invoke("JoinRoom", { room })
+            setConnection(connection)
+        }
+        catch (error) {
+            console.log(error)
+        }
+    }
+
+    const notf = (clas) => {
+        if (messages.length !== 0) {
+            return clas
+        }
+    }
+
+    useEffect(() => {
+        if (UserAuth()) {
+            connectRoomNotification(String(getUserInfo().idduser))
+        }
+    }, [])
+
+    useEffect(() => {
+        console.log(messages);
+    }, [messages])
 
     return (
         <header className='header_pages'>
@@ -33,8 +85,19 @@ export const Header = () => {
                             <>
                                 <div className='info_user'>
                                     <Nav />
+                                    <NavLink className={notf('notification')} onMouseOver={() => setNotification(false)} onMouseDown={() => setNotification(true)} to='/chat'>Chat</NavLink>
                                     <img onClick={() => none ? setNone(false) : setNone(true)} className='img_profile_user' src={imageprofile} alt="" />
                                 </div>
+                                <Popup variant={notification}>
+                                    {
+                                        messages?.map(item => (
+                                            <>
+                                                <img src={item.imageuser} alt="" />
+                                                <p onClick={logout} className='btn_logout_popup'>{item.user} {item.messagess}</p>
+                                            </>
+                                        ))
+                                    }
+                                </Popup>
                                 <Popup variant={none}>
                                     <header className='header_popup_profile'>
                                         <img className='image_profile_popup' src={imageprofile} alt="" />

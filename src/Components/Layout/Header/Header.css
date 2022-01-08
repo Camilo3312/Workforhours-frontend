@@ -113,7 +113,22 @@
     padding: 10px 20px;
     color: #FFFF;
     font-size: 18px;
-    border-top: 1px solid #ffffff71;
+    border-top: 1px solid #ffffff38;
+}
+
+.notification {
+    color: #FFFF;
+    text-decoration: none;
+    position: relative;
+}
+
+.notification::after {
+    content: '.';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+    background: red;
 }
 
 .btn_popup {
