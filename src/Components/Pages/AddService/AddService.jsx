@@ -17,6 +17,7 @@ export const AddService = () => {
     const [price, setPrice] = useState('')
     const [category, setCategory] = useState(0)
     const [imageservice, setImageservice] = useState('')
+    const [imagePrevew, setImagePrevew] = useState('')
 
     const getCities = async () => {
         const response = await fetch(`${apiUrl}api/location`, {
@@ -39,6 +40,7 @@ export const AddService = () => {
         formData.append('file', files.target.files[0])
         const responseImage = await Axios.post('https://api.cloudinary.com/v1_1/sena-quindio/image/upload', formData)
         setImageservice(responseImage.data.url)
+        setImagePrevew(responseImage.data.url)
     }
 
     const getCategories = async () => {
@@ -110,6 +112,9 @@ export const AddService = () => {
                         ))
                     }
                 </Select>
+                <div>
+                    <img src={imagePrevew} alt="" />
+                </div>
                 <input type="file" onChange={e => UploadImage(e)} />
                 <Button value='Registrar producto' />
             </form>
