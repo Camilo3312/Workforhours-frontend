@@ -6,7 +6,6 @@ import './Dashboard.css'
 export const Dashboard = () => {
     return (
         <>
-            <Header />
             <main className='main_dashboard'>
                 <aside className='aside_dashboard'>
                     <Link className='' to='services'>

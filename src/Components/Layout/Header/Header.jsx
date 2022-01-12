@@ -67,10 +67,6 @@ export const Header = () => {
         }
     }, [])
 
-    useEffect(() => {
-        console.log(messages);
-    }, [messages])
-
     return (
         <header className='header_pages'>
             <div className="center_header_pages">
@@ -85,16 +81,19 @@ export const Header = () => {
                             <>
                                 <div className='info_user'>
                                     <Nav />
-                                    <NavLink className={notf('notification')} onMouseOver={() => setNotification(false)} onMouseDown={() => setNotification(true)} to='/chat'>Chat</NavLink>
-                                    <img onClick={() => none ? setNone(false) : setNone(true)} className='img_profile_user' src={imageprofile} alt="" />
+                                    <NavLink className={`${notf('notification')} link_chat`} onMouseOver={() => setNotification(false) } onMouseOut={() => setNotification(true)} to='/chat'>Chat</NavLink>
+                                    <img onClick={() => none ? setNone(false) : setNone(true) } className='img_profile_user' src={imageprofile} alt="" />
                                 </div>
                                 <Popup variant={notification}>
                                     {
-                                        messages?.map(item => (
-                                            <>
-                                                <img src={item.imageuser} alt="" />
-                                                <p onClick={logout} className='btn_logout_popup'>{item.user} {item.messagess}</p>
-                                            </>
+                                        messages?.map((item,index) => (
+                                            <div key={index} className='info_notification'>
+                                                <header className='header_info_notification'>
+                                                    <img className='image_profile_notification' src={item.imageuser} alt="" />
+                                                    <p className='username_notification'>{item.user} </p>
+                                                </header>
+                                                <p className='message_notification'> <i>Ultimo mensaje:</i> {item.messagess}</p>
+                                            </div>
                                         ))
                                     }
                                 </Popup>
@@ -128,7 +127,7 @@ const Popup = styled.div`
     background: var(--blue);
     position: absolute;
     top: 60px;
-    z-index: 2;
+    z-index: 5;
     display: ${props => props.variant ? 'none' : 'block'};
     box-shadow: 0px 0px 30px #3a3a3a32;
 `

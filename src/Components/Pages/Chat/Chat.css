@@ -24,5 +24,23 @@
 
 .row_left {
     fill: var(--blue);
-    
+    width: 20px;
+}
+
+.chat_prevew {
+    width: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon_message {
+    width: 300px;
+    fill: #ebebeb;
+}
+
+@media screen and (max-width: 650px) {
+    .chat_prevew {
+        display: none;
+    }
 }

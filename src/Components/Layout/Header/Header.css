@@ -91,6 +91,27 @@
     /* justify-content: center; */
 }
 
+.info_notification {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.header_info_notification {
+    display: flex;
+    align-items: center;
+}
+
+.username_notification {
+    color: #FFFF;
+}
+
+.message_notification {
+    color: #FFFF;
+    font-size: 14px;
+    margin: 5px 0 0 0;
+}
+
 .image_profile_popup {
     width: 70px;
     height: 70px;
@@ -116,14 +137,22 @@
     border-top: 1px solid #ffffff38;
 }
 
-.notification {
+.image_profile_notification {
+    width: 30px;
+    height: 30px;
+    margin: 0 5px 0 0;
+    border-radius: 100%;
+    object-fit: cover;
+}
+
+.link_chat {
     color: #FFFF;
     text-decoration: none;
-    position: relative;
+    margin: 0 20px 0 0;
 }
 
 .notification::after {
-    content: '.';
+    content: '';
     position: absolute;
     width: 10px;
     height: 10px;

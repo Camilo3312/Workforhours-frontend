@@ -1,0 +1,35 @@
+.flex_form_add_servce {
+    display: flex;
+    padding: 20px;
+}
+
+.form_services {
+    width: 50%;
+    padding: 0 0 0 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.image_service_preview {
+    width: 50%;
+    position: relative;
+}
+
+.image_service_preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.input_file_image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+}
+
+.subtitle_add_service {
+    font-size: 1.6em;
+    color: #575757;
+    margin: 20px 0 0 20px;
+}
