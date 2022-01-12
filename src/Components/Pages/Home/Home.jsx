@@ -32,7 +32,6 @@ export const Home = () => {
 
     return (
         <>
-            <Header/>              
             <NavSearch/>
             <Banner/>           
             <main className='main_home'>

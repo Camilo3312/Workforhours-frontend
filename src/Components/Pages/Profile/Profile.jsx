@@ -32,7 +32,6 @@ export const Profile = () => {
 
     return (
         <>
-            <Header />
             <main>
                 <div className="center_main_profile">
                     <aside className='aside_info_user'>

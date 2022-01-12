@@ -56,7 +56,6 @@ export const InfoService = () => {
 
     return (
         <>
-            <Header />
             <main>
                 <div className="center_main_infoservice">
                     <div className="information">       

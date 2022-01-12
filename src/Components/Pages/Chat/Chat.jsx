@@ -6,6 +6,7 @@ import { getToken, getUserInfo } from '../../Cookies'
 import { Messages } from '../../Layout/Mesages/Messages'
 import { RateServices } from '../../Layout/RateServices/RateServices'
 import { ReactComponent as RowLeft } from '../../../Assets/Icons/RowLeft.svg'
+import { ReactComponent as Message } from '../../../Assets/Icons/Message.svg'
 import styled from 'styled-components'
 import './Chat.css'
 
@@ -148,13 +149,12 @@ export const Chat = () => {
 
     return (
         <div>
-            <Header />
             <main className='main_chat'>
                 <ContainerSwitchChat clicked={clicked}>
                     <SwitchChat setCurrentRoom={setCurrentRoom} connectRoom={connectRoom} closeConnection={closeConnection} setCurrentUser={setCurrentUser} connectRoomNotification={connectRoomNotification}/>
                 </ContainerSwitchChat>
                 {
-                    clicked && (
+                    clicked ? 
                         <ContainerMessages clicked={clicked}>
                             <header className='header_info_user_selected'>
                                 <ButtonExitChat onClick={() => clicked ? setClicked(false) : setClicked(true)}>
@@ -166,7 +166,10 @@ export const Chat = () => {
                             <RateServices/>
                             <Messages sendMessage={sendMessage} messages={messages} currentRoom={currentRoom} saveMessage={saveMessage} notification={notification} currentUser={currentUser} />
                         </ContainerMessages>
-                    )
+                    :
+                        <div className='chat_prevew'>
+                            <Message className='icon_message'/>
+                        </div>
                 }
             </main>
         </div>

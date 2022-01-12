@@ -4,6 +4,7 @@ import { Input } from '../../IU/Input/Input'
 import { Select } from '../../IU/Select/Select'
 import { getToken, getUserInfo } from '../../Cookies'
 import Axios from 'axios'
+import './AddService.css'
 const apiUrl = process.env.REACT_APP_API
 
 export const AddService = () => {
@@ -91,33 +92,35 @@ export const AddService = () => {
 
     return (
         <main>
-            <p>Add service</p>
-            <form onSubmit={registerService}>
-                <Input funct={setName} placeholder='Nombre del servicio' />
-                <Select funct={setLocation}>
-                    <option>Seleccione una ciudad</option>
-                    {
-                        cities?.map((item, index) => (
-                            <option key={index} value={item.idcitie}>{item.name}</option>
-                        ))
-                    }
-                </Select>
-                <Input funct={setDescription} placeholder='Describa el servicio a ofrecer' />
-                <Input funct={setPrice} type='number' />
-                <Select funct={setCategory}>
-                    <option>Seleccione una categoria</option>
-                    {
-                        categories?.map((item, index) => (
-                            <option key={index} value={item.idcategory}>{item.name}</option>
-                        ))
-                    }
-                </Select>
-                <div>
+            <p className='subtitle_add_service'>Agregar servicios</p>
+            <div className="flex_form_add_servce">
+                <div className='image_service_preview'>
                     <img src={imagePrevew} alt="" />
+                    <input className='input_file_image' type="file" onChange={e => UploadImage(e)} />
                 </div>
-                <input type="file" onChange={e => UploadImage(e)} />
-                <Button value='Registrar producto' />
-            </form>
+                <form className='form_services' onSubmit={registerService}>
+                    <Input funct={setName} placeholder='Nombre del servicio' />
+                    <Select funct={setLocation}>
+                        <option>Seleccione una ciudad</option>
+                        {
+                            cities?.map((item, index) => (
+                                <option key={index} value={item.idcitie}>{item.name}</option>
+                            ))
+                        }
+                    </Select>
+                    <Input funct={setDescription} placeholder='Describa el servicio a ofrecer' />
+                    <Input funct={setPrice} type='number' />
+                    <Select funct={setCategory}>
+                        <option>Seleccione una categoria</option>
+                        {
+                            categories?.map((item, index) => (
+                                <option key={index} value={item.idcategory}>{item.name}</option>
+                            ))
+                        }
+                    </Select>
+                    <Button value='Registrar producto' />
+                </form>
+            </div>
         </main>
     )
 }

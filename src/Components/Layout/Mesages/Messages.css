@@ -10,17 +10,29 @@
     /* justify-content: flex-end; */
     flex-wrap: wrap;
     margin: 0 0 20px 0;
+    /* position: relative; */
 }
 
 .limit_width_message {
     max-width: 400px;
 }
 
+.aux {
+    position: relative;
+}
+
 .message_chat {
+    position: relative;
+    z-index: 2;
     padding: 10px;
     border-radius: 5px;
     background: var(--blue);
     color: #FFF;
+}
+
+
+.aux:hover > .option_menu {
+    right: -40px;
 }
 
 ._message {
@@ -76,4 +88,13 @@
     display: flex;
     /* justify-content: flex-end; */
     flex-wrap: wrap;
+}
+
+.icon_menu {
+    width: 15px;
+    fill: #FFFF;
+}
+
+.cliked {
+    display: none;
 }

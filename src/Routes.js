@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { InfoService } from './Components/Pages/InfoService/InfoService'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { AddService } from './Components/Pages/AddService/AddService'
@@ -12,30 +12,35 @@ import { ProtectedRoute } from './Components/ProtectedRoute'
 import { Chat } from './Components/Pages/Chat/Chat'
 import { Dashboard } from './Components/Pages/Dashboard/Dashboard'
 import { Services } from './Components/Layout/Services/Services'
+import { Header } from './Components/Layout/Header/Header'
 
 function App() {
     
     return (
-        <BrowserRouter>
-            <Routes>
-                <Route path='/*' element={<Home />} />
-                <Route path='service/:name/:id' element={
-                    <ProtectedRoute route='/login'>
-                        <InfoService />
-                    </ProtectedRoute>} />
-                <Route path='/login' element={<Login />} />
-                <Route path='/service/add' element={<ProtectedRoute route='/login'><AddService /></ProtectedRoute>} />
-                <Route path='/profile/user/:id' element={<ProtectedRoute route='/login'><Profile /></ProtectedRoute>} />
-                <Route path='/register' element={<Register />} />
-                <Route path='/password/recover' element={<RecoverPassword />} />
-                <Route path='/password/update/:token/:email' element={<UpdatePassword />} />
-                <Route path='/chat' element={<Chat />} />
-                <Route path='/dashboard/*' element={<Dashboard />}>
-                    <Route path='services' element={<Services />} />
-                    <Route path='services/add' element={<AddService />} />
-                </Route>
-            </Routes>
-        </BrowserRouter>
+        <>
+            <BrowserRouter>
+                <Header/>
+                <Routes>
+                    <Route path='/*' element={<Home />} />
+                    <Route path='service/:name/:id' element={
+                        <ProtectedRoute route='/login'>
+                            <InfoService />
+                        </ProtectedRoute>} />
+                    <Route path='/service/add' element={<ProtectedRoute route='/login'><AddService /></ProtectedRoute>} />
+                    <Route path='/profile/user/:id' element={<ProtectedRoute route='/login'><Profile /></ProtectedRoute>} />
+                    <Route path='/register' element={<Register />} />
+                    <Route path='/chat' element={<Chat />} />
+                    <Route path='/dashboard/*' element={<Dashboard />}>
+                        <Route path='services' element={<Services />} />
+                        <Route path='services/add' element={<AddService />} />
+                    </Route>                              
+                    <Route path='/login' element={<Login />} />
+                    <Route path='/register' element={<Register />} />
+                    <Route path='/password/recover' element={<RecoverPassword />} />
+                    <Route path='/password/update/:token/:email' element={<UpdatePassword />} />
+                </Routes>
+            </BrowserRouter>
+        </>
     )
 }
 
