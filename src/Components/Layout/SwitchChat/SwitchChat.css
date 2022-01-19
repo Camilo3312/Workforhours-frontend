@@ -5,5 +5,11 @@
 }
 
 .switch_chat {
+    height: 100%;
     padding: 20px;
+}
+
+.scroll_switch_chat {
+    height: calc(100% - 37px)  ;
+    overflow-y: scroll;
 }

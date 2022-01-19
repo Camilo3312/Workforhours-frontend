@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { useParams, useNavigate, NavLink } from 'react-router-dom'
 import { getToken, getUserInfo } from '../../Cookies'
-import { Header } from '../../Layout/Header/Header'
 import { Link } from 'react-router-dom'
-import { Button } from '../../IU/Button/Button'
+import { ReactComponent as MapMarker } from '../../../Assets/Icons/MapMarker.svg'
+import { ReactComponent as Comment } from '../../../Assets/Icons/Comment.svg'
 import './InfoService.css'
 const urlApi = process.env.REACT_APP_API
 
@@ -45,10 +45,6 @@ export const InfoService = () => {
         navigate('/chat')
     }
 
-    const redirect = () => {
-        navigate(`/profile/user/${service.iduser}`)
-    }
-
     useEffect(() => {
         getService()
         document.title = params.name.split('-').join(' ')
@@ -75,14 +71,18 @@ export const InfoService = () => {
                             <div className='body_info_service'>
                                 <p className='subtitle_body_info_service'>Categoria</p>
                                 <p className='category_info_service'>{service.category}</p>
-                                <h1 className='tilte_info_service' >{service.name}</h1>
+                                <div className='flex_title_info_service'>
+                                    <h1 className='tilte_info_service' >{service.name}</h1>
+                                    <div className='flex_location_info_serive'>
+                                        <MapMarker className='map_market'/> 
+                                        <p className='location_body_info_service'> {service.citie}  {service.departament} </p>
+                                    </div>
+                                </div>
+                              
+                                <p className='price_info_service'>${service.price} por cada hora</p>
                                 <p className='subtitle_body_info_service'>Descripción</p>
                                 <p className='description_info_service'>{service.description} Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius voluptatum itaque nesciunt accusantium accusamus? Ea laudantium, id inventore ipsam impedit totam, sapiente praesentium quas eum modi sequi. Fuga, pariatur soluta.</p>
-                                <p className='subtitle_body_info_service'>Precio por hora</p>
-                                <p className='price_info_service'>${service.price} por hora</p>
-                                <p className='subtitle_body_info_service'>Ubicación</p>
-                                <p className='location_info_service' >{service.citie}  {service.departament}</p>
-                                <button onClick={createRoom}>Contactar</button>
+                                <button className='contact_button' onClick={createRoom}> <Comment className='icon_comment'/> Contactar</button>
                             </div>
                         </div>
                     </div>
