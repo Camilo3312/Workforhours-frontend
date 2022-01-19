@@ -5,6 +5,17 @@ import './SwitchChat.css'
 const CardChat = lazy(()=> import('../../IU/CardChat/CardChat'))
 const urlApi = process.env.REACT_APP_API
 
+const arr = [
+    {
+        idroom: 19,
+        notification: "Message"
+    },
+    {
+        idroom: 10,
+        notification: "Message 2"
+    }
+]
+
 export const SwitchChat = ({ setCurrentRoom, connectRoom, closeConnection, setCurrentUser, connectRoomNotification }) => {
     const [rooms, setRooms] = useState([])
 
@@ -24,6 +35,14 @@ export const SwitchChat = ({ setCurrentRoom, connectRoom, closeConnection, setCu
 
     useEffect(() => {
         getRooms()
+        const newList = rooms?.map((item) => {
+            arr.map((itemArr)=> {
+                return itemArr.idroom == item.idroom
+            }) 
+        })
+
+        console.log(newList);
+
     }, [])
 
     const connect = (room, user) => {
@@ -31,7 +50,7 @@ export const SwitchChat = ({ setCurrentRoom, connectRoom, closeConnection, setCu
         setCurrentRoom(String(room))
         connectRoomNotification(String(user))
         const currentUser = rooms.filter(item => {
-            return item.iduser === parseInt(user)
+            return item.idroom === parseInt(room)
         })
         setCurrentUser(...currentUser)
         connectRoom(String(room))
@@ -40,13 +59,17 @@ export const SwitchChat = ({ setCurrentRoom, connectRoom, closeConnection, setCu
     return (
         <div className='switch_chat'>
             <h1 className='title_switch_chat'>Chat</h1>
-            {
-                rooms?.map((item, index) => (
-                    <Suspense key={index} fallback={<CardChatLoad/>}>
-                        <CardChat object={item} connect={connect} />
-                    </Suspense>
-                ))
-            }
+            <div className='scroll_switch_chat'>
+                {
+                    rooms?.map((item, index) => (
+                        <Suspense key={index} fallback={<CardChatLoad/>}>
+        
+                                    <CardChat object={item} connect={connect}  notification={''} />
+        
+                        </Suspense>
+                    ))
+                }
+            </div>
         </div>
     )
 }

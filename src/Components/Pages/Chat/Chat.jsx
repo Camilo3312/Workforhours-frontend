@@ -160,8 +160,12 @@ export const Chat = () => {
                                 <ButtonExitChat onClick={() => clicked ? setClicked(false) : setClicked(true)}>
                                     <RowLeft className='row_left'/>
                                 </ButtonExitChat>
-                                <img className='img_profile_user_selected' src={currentUser.imageprofile} alt="" />
-                                <p className='name_current_user'>{currentUser.names}</p>
+                                <div className='flex_profile_user_select'>
+                                    <img className='img_profile_user_selected' src={currentUser.imageprofile} alt="" />
+                                    <p className='name_current_user'>{currentUser.names}</p>
+                                </div>
+
+                                <img className='img_service_user_selected' src={currentUser.imageservice} alt="" />
                             </header>
                             <RateServices/>
                             <Messages sendMessage={sendMessage} messages={messages} currentRoom={currentRoom} saveMessage={saveMessage} notification={notification} currentUser={currentUser} />

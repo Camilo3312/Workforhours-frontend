@@ -1,7 +1,7 @@
 import React from 'react'
 import './CardChat.css'
 
-const CardChat = ({ object, connect }) => {
+const CardChat = ({ object, connect, notification = "" }) => {
     return (
         <div className='link_switch_chat' onClick={e => connect(object.idroom, object.iduser)}>
             <div className="header_swith_chat">
@@ -13,6 +13,7 @@ const CardChat = ({ object, connect }) => {
                     <p>{object.names} {object.surnames}</p>
                 </div>
                 <img className='image_chat_service' src={object.imageservice} alt="" />
+                {/* <p>notification</p>  */}
             </div>
         </div>
     )
