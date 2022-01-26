@@ -11,6 +11,7 @@
 .image_service {
     width: 60%;
     max-height: 75vh;
+    padding: 0 0 0 10px;
 }
 
 .subtitle_info_service {
@@ -160,4 +161,23 @@
     width: 20px;
     fill: #FFFF;
     margin: 0 5px 0 0;
+}
+
+@media screen and (max-width: 480px) {
+    .information {
+        flex-direction: column-reverse;
+    }
+
+    .info_service {
+        width: 100%;
+    }
+
+    .image_service {
+        padding: 10px;
+        width: 100%;
+    }
+
+    .center_main_infoservice {
+        margin: 0;
+    }
 }
