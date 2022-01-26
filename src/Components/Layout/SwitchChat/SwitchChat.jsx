@@ -63,9 +63,7 @@ export const SwitchChat = ({ setCurrentRoom, connectRoom, closeConnection, setCu
                 {
                     rooms?.map((item, index) => (
                         <Suspense key={index} fallback={<CardChatLoad/>}>
-        
-                                    <CardChat object={item} connect={connect}  notification={''} />
-        
+                            <CardChat object={item} connect={connect}  notification={''} />
                         </Suspense>
                     ))
                 }

@@ -10,6 +10,11 @@
     justify-content: space-between;
 }
 
+.flex_options_chat {
+    display: flex;
+    align-items: center;
+}
+
 .flex_profile_user_select {
     display: flex;
     align-items: center;
@@ -38,7 +43,7 @@
 
 .row_left {
     fill: var(--blue);
-    width: 20px;
+    width: 19px;
 }
 
 .chat_prevew {
