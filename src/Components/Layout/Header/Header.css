@@ -170,3 +170,47 @@
     cursor: pointer;
     background: rgba(0,0,0,.1);
 }
+
+.none_popup {
+    display: none;
+}
+
+.btn_logout_popup_chat {
+    display: none;
+    padding: 10px 20px;
+    color: #FFFF;
+    font-size: 18px;
+}
+
+.btn_logout_popup_chat:hover {
+    cursor: pointer;
+    background: rgba(0,0,0,.1);
+}
+
+.btn_logout_popup_nav {
+    display: none;
+    padding: 0px 10px;
+    color: #FFFF;
+    font-size: 18px;
+}
+
+@media screen and (max-width: 480px) {
+    .logo h1 {
+        font-size: 1.3em;
+    }
+
+    .none {
+        display: none;
+    }
+
+    .none_popup {
+        display: block;
+    }
+    .btn_logout_popup_chat {
+        display: block;
+    }
+
+    .btn_logout_popup_nav {
+        display: block;
+    }
+}

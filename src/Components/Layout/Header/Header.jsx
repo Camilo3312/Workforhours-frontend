@@ -80,13 +80,15 @@ export const Header = () => {
                         UserAuth() ?
                             <>
                                 <div className='info_user'>
-                                    <Nav />
-                                    <NavLink className={`${notf('notification')} link_chat`} onMouseOver={() => setNotification(false) } onMouseOut={() => setNotification(true)} to='/chat'>Chat</NavLink>
-                                    <img onClick={() => none ? setNone(false) : setNone(true) } className='img_profile_user' src={imageprofile} alt="" />
+                                    <div className='none'>
+                                        <Nav />
+                                    </div>
+                                        <NavLink className={`${notf('notification')} link_chat none`} onMouseOver={() => setNotification(false)} onMouseOut={() => setNotification(true)} to='/chat'>Chat</NavLink>
+                                    <img onClick={() => none ? setNone(false) : setNone(true)} className='img_profile_user' src={imageprofile} alt="" />
                                 </div>
                                 <Popup variant={notification}>
                                     {
-                                        messages?.map((item,index) => (
+                                        messages?.map((item, index) => (
                                             <div key={index} className='info_notification'>
                                                 <header className='header_info_notification'>
                                                     <img className='image_profile_notification' src={item.imageuser} alt="" />
@@ -102,11 +104,19 @@ export const Header = () => {
                                         <img className='image_profile_popup' src={imageprofile} alt="" />
                                         <div className='info_user_popup'>
                                             <p className='names_profile_popup'>{names}</p>
+
                                             <p className='email_profile_popup'>{email}</p>
                                         </div>
                                     </header>
                                     <p onClick={logout} className='btn_logout_popup'>Perfil</p>
+                                    <div className='btn_logout_popup_nav'>
+                                        <Nav />
+                                    </div>
+                                    <p className='btn_logout_popup_chat'>
+                                        <NavLink className={`${notf('notification')} link_chat `} onMouseOver={() => setNotification(false)} onMouseOut={() => setNotification(true)} to='/chat'>Chat</NavLink>
+                                    </p> 
                                     <p onClick={logout} className='btn_logout_popup'>Cerrar sesión</p>
+
                                 </Popup>
                             </>
                             :
