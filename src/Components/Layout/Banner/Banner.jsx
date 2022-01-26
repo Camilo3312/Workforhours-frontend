@@ -5,7 +5,7 @@ import './Banner.css'
 export const Banner = () => {
     return (
         <div className='banner'>
-            <img className='image_banner' src={banner} alt="" />
+            <img className='image_banner' src="https://media.istockphoto.com/photos/garden-worker-trimming-plants-picture-id1166203849?k=20&m=1166203849&s=612x612&w=0&h=UVoI3c9o4DljCFxpRpJznJE5zONRgo9sxeyysO7xVZw=" alt="" />
             <div className="filter_banner">
                 <div className="center_banner">
                     <div className="info_banner">

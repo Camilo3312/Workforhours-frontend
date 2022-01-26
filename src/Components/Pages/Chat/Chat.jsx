@@ -157,14 +157,15 @@ export const Chat = () => {
                     clicked ? 
                         <ContainerMessages clicked={clicked}>
                             <header className='header_info_user_selected'>
-                                <ButtonExitChat onClick={() => clicked ? setClicked(false) : setClicked(true)}>
-                                    <RowLeft className='row_left'/>
-                                </ButtonExitChat>
-                                <div className='flex_profile_user_select'>
-                                    <img className='img_profile_user_selected' src={currentUser.imageprofile} alt="" />
-                                    <p className='name_current_user'>{currentUser.names}</p>
+                                <div className='flex_options_chat'>
+                                    <ButtonExitChat onClick={() => clicked ? setClicked(false) : setClicked(true)}>
+                                        <RowLeft className='row_left'/>
+                                    </ButtonExitChat>
+                                    <div className='flex_profile_user_select'>
+                                        <img className='img_profile_user_selected' src={currentUser.imageprofile} alt="" />
+                                        <p className='name_current_user'>{currentUser.names}</p>
+                                    </div>
                                 </div>
-
                                 <img className='img_service_user_selected' src={currentUser.imageservice} alt="" />
                             </header>
                             <RateServices/>
@@ -197,10 +198,11 @@ const ContainerMessages = styled.div`
 
 const ButtonExitChat = styled.button`
     border: none;
-    text-align: center;
     background: transparent;
     margin: 0 10px 0 0;
     @media screen and (min-width: 650px) {
         display: none;
     }
+    display: flex;
+    justify-content: center;
 `
