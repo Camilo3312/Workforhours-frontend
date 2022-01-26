@@ -13,6 +13,7 @@ import { Chat } from './Components/Pages/Chat/Chat'
 import { Dashboard } from './Components/Pages/Dashboard/Dashboard'
 import { Services } from './Components/Layout/Services/Services'
 import { Header } from './Components/Layout/Header/Header'
+import { NotFound } from './Components/Pages/NotFound/NotFound'
 
 function App() {
     
@@ -21,7 +22,8 @@ function App() {
             <BrowserRouter>
                 <Header/>
                 <Routes>
-                    <Route path='/*' element={<Home />} />
+                    <Route path='/' element={<Home />} />
+                    <Route path='*' element={<NotFound />} />
                     <Route path='service/:name/:id' element={
                         <ProtectedRoute route='/login'>
                             <InfoService />

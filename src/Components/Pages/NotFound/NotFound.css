@@ -1,0 +1,18 @@
+.main_not_found {
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.title_not_found {
+    font-size: 2em;
+    color: #6d6d6d;
+}
+
+.icon_not_found {
+    margin: 20px;
+    font-size: 3em;
+    color: #6d6d6d;
+}
