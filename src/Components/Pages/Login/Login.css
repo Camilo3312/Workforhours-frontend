@@ -54,3 +54,27 @@
 .link:hover {
     text-decoration: underline;
 }
+
+@media screen and (max-width: 750px) {
+    .center_login {
+        position: relative;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .banner_login {
+        width: 100%;
+    }
+
+    .title_login {
+        font-size: 2em;
+    }
+
+    .form_login {
+        position: absolute;
+        top: 70px;
+        background: #ffffff;
+        border-radius: 5px;
+        width: 80%;
+    }
+}
