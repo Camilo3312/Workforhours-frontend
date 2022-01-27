@@ -11,6 +11,7 @@
 .center_main_register {
     max-width: 300px;
     margin: 2em auto;
+    padding: 0 10px;
 }
 
 .subtitle_form_register {
