@@ -8,10 +8,10 @@ import './Login.css'
 const apiUrl = process.env.REACT_APP_API
 
 export const Login = () => {
-    const images = ['https://images6.alphacoders.com/108/thumb-1920-1082090.jpg', 'https://wallpaperaccess.com/full/37444.jpg','https://fondosmil.com/fondo/22205.png']
+    const images = ['https://eieihome.com/articles/wp-content/uploads/2017/04/28646787_l.jpg', 'https://rdcnewscdn.realtor.com/wp-content/uploads/2015/08/house-painter.jpg','https://plomerospereira.co/wp-content/uploads/2020/02/plomeros-24-horas-.jpg']
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-    const [image, setImage] = useState('https://images6.alphacoders.com/108/thumb-1920-1082090.jpg')
+    const [image, setImage] = useState('https://eieihome.com/articles/wp-content/uploads/2017/04/28646787_l.jpg')
     const [message, setMessage] = useState('')
     const navigate = useNavigate()
 
@@ -46,7 +46,7 @@ export const Login = () => {
     useEffect(() => {
         const interval = setInterval(() => {
           setImage(Image())
-        }, 3000);
+        }, 4000);
         return () => clearInterval(interval);
       }, []);
 
